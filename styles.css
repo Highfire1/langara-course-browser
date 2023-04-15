@@ -3,6 +3,11 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.mono {
+    font-family: 'Roboto Mono';
+    font-size: small;
+}
+
 header, footer {
     background-color: black;
     color: orange;
@@ -36,6 +41,10 @@ header, footer > ul > li > a {
     min-height: 200vh;
 }
 
+#courseTable > div > * {
+    margin-bottom: 20px;
+}
+
 
 #courseTable > div {
     border: 1px solid #000;
@@ -47,21 +56,33 @@ header, footer > ul > li > a {
 
 table {
     border-collapse: collapse;
-    display: grid; 
-    grid: auto auto/ fit-content(100%) fit-content(100%);
-    width: fit-content;
+}
 
+table > td, tbody > * {
+    vertical-align: top;
+    text-align: left;
 }
 
 th, td {
     border: 1px solid #000;
     text-align: left;
-    padding: 3px;
+    padding: 5px;
 }
 
 #transferTable {
     width: fit-content;
+    table-layout: fixed;
 }
+
+.tablePriority {
+    min-width: max-content;
+}
+
+.offeredTable {
+    width: fit-content;
+}
+
+
 
 .hidden {
     display: none;
@@ -69,4 +90,18 @@ th, td {
 
 p {
     font-size: 18;
+    margin: 0;
+    padding: 0;
+}
+
+.red {
+    background-color: rgb(253, 167, 167);
+}
+
+.yellow {
+    background-color: rgb(241, 241, 162);
+}
+
+.green {
+    background-color: rgb(126, 198, 126);
 }

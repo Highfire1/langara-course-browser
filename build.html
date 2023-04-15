@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Langara Course Browser</title>
+
+    <!--Fuse.js because it'll take too long to implement good search-->
+    <!--<script src="https://cdn.jsdelivr.net/npm/fuse.js"></script> -->
+
+    <!--Load font (montserrat & roboto mono)-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"> 
+
+    <!--Load javascript-->
+    <script src='main.js'> </script>
+
+    <!--Load stylesheet-->
+    <link href='styles.css' rel='stylesheet'/>
+</head>
+<!--
+    
+-->
+<body>
+    <header>
+        <h2>(unofficial) Langara Course Browser.</h2>
+        <input class="hidden" type="text" id="courseSearchBar" placeholder="Search...">
+        <p id="searchResults">Loading courses...</p>
+    </header>
+
+    <div id="courseTable"></div>
+
+    <footer>
+        <p>Data sourced from:</p>
+        <ul>
+            <li><a href="https://swing.langara.bc.ca/prod/hzgkfcls.P_Sel_Crse_Search">https://swing.langara.bc.ca/prod/hzgkfcls.P_Sel_Crse_Search</a></li>
+            <li><a href="https://swing.langara.bc.ca/prod/hzgkcald.P_DispCrseAttr">https://swing.langara.bc.ca/prod/hzgkcald.P_DispCrseAttr</a></li>
+            <li><a href="https://swing.langara.bc.ca/prod/hzgkcald.P_DisplayCatalog">https://swing.langara.bc.ca/prod/hzgkcald.P_DisplayCatalog</a></li>
+            <li><a href="https://www.bctransferguide.ca/">https://www.bctransferguide.ca/</a></li>
+        </ul>
+        <p>Created by Highfire1#1942</p>
+        <p><a>❤️ <a href="https://highfire1.github.io/langara-course-browser/">Github</a> ❤️</a></p>
+    </footer>
+</body>
+</html>
