@@ -127,7 +127,7 @@ function generateHTML(object) {
                 classes += "yellow "
             
             html += `
-                <tr class=${classes} ${t.destination}>
+                <tr class="${classes} ${t.destination}">
                     <td class="tablePriority">${t.subject} ${t.course_code}</td>
                     <td class="tablePriority">${t.destination}</td>
                     <td>${t.credit}</td>
