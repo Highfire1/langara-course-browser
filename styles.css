@@ -174,3 +174,7 @@ p {
 #offeringsCheckbox:not(:checked) ~ #courseTable > div > .offeredTable {
     display: none;
 }
+
+#discontinuedCheckbox:not(:checked) ~ #courseTable > .discontinued {
+    display: none;
+}

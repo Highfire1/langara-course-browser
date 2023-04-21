@@ -254,5 +254,8 @@ function generateHTML(object) {
     temp.id = `${object.subject}${object.course_code}`
     temp.className = `courselistcourse`
 
+    if (object.availability == "discontinued") 
+        temp.className += " discontinued"
+
     return temp
 }
