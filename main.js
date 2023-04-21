@@ -60,11 +60,17 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     updateCourseTable()
 
+    document.getElementById("transferCheckbox").addEventListener("click", function(event) {
+        document.getElementsByClassName("transferTable").style += " hidden"
+    })
+
 })
 
 function updateCourseTable() {
     if (courses == null) 
         return
+
+    
 
     const courseNodes = document.createDocumentFragment()
     const offset = (currentPage-1)*coursesPerPage

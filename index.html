@@ -27,19 +27,31 @@
 <body>
     <header>
         <h2>(unofficial) Langara Course Browser.</h2>
-        <input type="text" id="courseSearchBar" placeholder="Search...">
         <p id="searchResults">Loading courses...</p>
-
-        <label for="coursesPerPageCount">Courses per page: </label>
-        <select name="courses per page" id="coursesPerPageCount">
-            <option value="20">20</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-            <option value="200">200</option>
-            <option value="500">500</option>
-            <option value="999999">All (warning: laggy)</option>
-          </select>
     </header>
+
+    <br class="hidden">
+    <input class="hidden" type="text" id="courseSearchBar" placeholder="Search...">
+
+    <br>
+    <label for="coursesPerPageCount">Courses per page: </label>
+    <select name="courses per page" id="coursesPerPageCount">
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="200" selected>200</option>
+        <option value="500">500</option>
+        <option value="999999">All (warning: laggy)</option>
+    </select>
+
+    <br>
+    <input type="checkbox" id="transferCheckbox" checked>
+    <label for="transferCheckbox">Show Transfer Information</label>
+    
+    <br>
+    <input type="checkbox" id="offeringsCheckbox" unchecked>
+    <label for="offeringsCheckbox">Show Previous Offerings</label>
+
     
 
     <div class="paginator"></div>

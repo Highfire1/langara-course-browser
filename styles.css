@@ -14,6 +14,14 @@ header, footer {
     padding: 20px;
 }
 
+header {
+    padding-bottom: 20px !important;
+}
+
+footer {
+    padding-top: 20px !important;
+}
+
 header, footer > p {
     margin-bottom: 0px;
 }
@@ -30,15 +38,43 @@ header, footer > ul > li > a {
     width: 250px;
 }
 
-body > div {
+
+body > * {
     padding: 100px;
     padding-top: 20px;
     padding-bottom: 0;
+    width: calc(100%-200px);
+}
+
+body > div {
     min-width: calc(100%-200px);
     max-width: calc(100%-200px);
 }
 
-body > div:last-of-type {
+body > select, input {
+    padding: 0;
+    margin-left: 100px;
+}
+
+
+body > input + label, label+select {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+}
+
+body > label {
+    padding-right: 5px;
+    padding-top: 0;
+}
+
+header > input {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+
+body > *:last-child {
     padding-bottom: 20px;
 }
 
@@ -124,4 +160,12 @@ p {
 
 .green {
     background-color: rgb(126, 198, 126);
+}
+
+#transferCheckbox:not(:checked) ~ #courseTable > div > .transferTable {
+    display: none;
+}
+
+#offeringsCheckbox:not(:checked) ~ #courseTable > div > .offeredTable {
+    display: none;
 }
