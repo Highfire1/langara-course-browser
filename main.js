@@ -33,13 +33,14 @@ document.addEventListener('DOMContentLoaded', async function() {
         b1.addEventListener("click", function() {
             currentPage = Math.max(1, currentPage-1)
             updateCourseTable()
+            window.scrollTo({top: 0, behavior: 'smooth'});
         })
 
         // next page
         b2.addEventListener("click", function() {
             currentPage = Math.min(currentPage+1, Math.ceil(courses.length / document.getElementById("coursesPerPageCount").value))
-            
             updateCourseTable()
+            window.scrollTo({top: 0, behavior: 'smooth'});
         })
     }
 
