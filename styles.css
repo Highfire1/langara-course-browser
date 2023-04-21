@@ -1,12 +1,12 @@
-body {
+body, h3 {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    /*font-family: 'Montserrat', sans-serif; */
 }
 
-.mono {
+/*.mono {
     font-family: 'Roboto Mono';
     font-size: small;
-}
+}*/
 
 header, footer {
     background-color: black;
@@ -30,28 +30,48 @@ header, footer > ul > li > a {
     width: 250px;
 }
 
+body > div {
+    padding: 100px;
+    padding-top: 20px;
+    padding-bottom: 0;
+    min-width: calc(100%-200px);
+    max-width: calc(100%-200px);
+}
+
+body > div:last-of-type {
+    padding-bottom: 20px;
+}
+
+.paginator {
+    display: grid;
+    grid-template-columns: 15% 1fr 15%;
+    text-align: center;
+}
+
+
+
 #courseTable {
     border-collapse: collapse;
-    padding: 110px;
-    padding-top: 20px;
     margin: 0;
-    width: calc(100% - 220px);
     display: grid;
     box-sizing: border-box;
     min-height: 200vh;
+}
+
+#courseTable > div {
+    border: 1px solid #000;
+    padding: 10px;
+    width: calc(100vw - 200px);
+    box-sizing: inherit;
+    margin-bottom: 20px;
 }
 
 #courseTable > div > * {
     margin-bottom: 20px;
 }
 
-
-#courseTable > div {
-    border: 1px solid #000;
-    padding: 10px;
-    margin: 10px;
-    width: calc(100vw - 240px);
-    box-sizing: inherit;
+#courseTable > div > *:last-of-type {
+    margin-bottom: 0;
 }
 
 table {

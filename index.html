@@ -7,7 +7,7 @@
     <title>Langara Course Browser</title>
 
     <!--Fuse.js because it'll take too long to implement good search-->
-    <!--<script src="https://cdn.jsdelivr.net/npm/fuse.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js"></script>
 
     <!--Load font (montserrat & roboto mono)-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
     <script src='main.js'> </script>
 
     <!--Load stylesheet-->
-    <link href='styles.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <!--
     
@@ -27,16 +27,29 @@
 <body>
     <header>
         <h2>(unofficial) Langara Course Browser.</h2>
-        <input class="hidden" type="text" id="courseSearchBar" placeholder="Search...">
+        <input type="text" id="courseSearchBar" placeholder="Search...">
         <p id="searchResults">Loading courses...</p>
-    </header>
 
+        <label for="coursesPerPageCount">Courses per page: </label>
+        <select name="courses per page" id="coursesPerPageCount">
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="500">500</option>
+            <option value="999999">All (warning: laggy)</option>
+          </select>
+    </header>
+    
+
+    <div class="paginator"></div>
     <div id="courseTable"></div>
+    <div class="paginator"></div>
 
     <footer>
         <p>Data sourced from:</p>
         <ul>
-            <li><a href="https://swing.langara.bc.ca/prod/hzgkfcls.P_Sel_Crse_Search">https://swing.langara.bc.ca/prod/hzgkfcls.P_Sel_Crse_Search</a></li>
+            <li><a href="https://swing.lang ara.bc.ca/prod/hzgkfcls.P_Sel_Crse_Search">https://swing.langara.bc.ca/prod/hzgkfcls.P_Sel_Crse_Search</a></li>
             <li><a href="https://swing.langara.bc.ca/prod/hzgkcald.P_DispCrseAttr">https://swing.langara.bc.ca/prod/hzgkcald.P_DispCrseAttr</a></li>
             <li><a href="https://swing.langara.bc.ca/prod/hzgkcald.P_DisplayCatalog">https://swing.langara.bc.ca/prod/hzgkcald.P_DisplayCatalog</a></li>
             <li><a href="https://www.bctransferguide.ca/">https://www.bctransferguide.ca/</a></li>

@@ -4,6 +4,9 @@ async function fetchdata() {
     return jsonData
 }
 
+var courses = null
+var currentPage = 1 // starts at 1
+var coursesPerPage = null
 
 document.addEventListener('DOMContentLoaded', async function() {
 
@@ -11,26 +14,89 @@ document.addEventListener('DOMContentLoaded', async function() {
         return
     }
 
-    data = await fetchdata()
-    data = data.courses
+    for(const paginator of document.getElementsByClassName("paginator")) {
+        const b1 = document.createElement("button")
+        b1.textContent = "Previous"
+        //b1.disabled = true
 
-    //data = data.slice(0, 5)
+        const text = document.createElement("p")
+        text.textContent = "Loading courses..."
 
+        const b2 = document.createElement("button")
+        b2.textContent = "Next"
 
-    list = this.getElementById("courseTable")
+        paginator.appendChild(b1)
+        paginator.appendChild(text)
+        paginator.appendChild(b2)
 
-    for (const course in data) {
-        list.appendChild(generateHTML(data[course]))
+        // previous page
+        b1.addEventListener("click", function() {
+            currentPage = Math.max(1, currentPage-1)
+            updateCourseTable()
+        })
+
+        // next page
+        b2.addEventListener("click", function() {
+            currentPage = Math.min(currentPage+1, Math.ceil(courses.length / document.getElementById("coursesPerPageCount").value))
+            
+            updateCourseTable()
+        })
     }
 
-    this.getElementById("searchResults").textContent = `Currently displaying ${data.length} courses.`
+    
+    courses = await fetchdata()
+    courses = courses.courses
+    //courses = courses.slice(0, 100)
+
+    coursesPerPage = parseInt(document.getElementById("coursesPerPageCount").value)
+    document.getElementById("coursesPerPageCount").addEventListener("change", function() {
+        // translate page (ie 20 items/page & currentPage 10 -> 100 items/page & currentPage 2)
+        const count = coursesPerPage * (currentPage-1)
+        coursesPerPage = parseInt(document.getElementById("coursesPerPageCount").value)
+        currentPage = Math.floor(count / coursesPerPage) + 1
+
+        updateCourseTable()
+    })
+
+    updateCourseTable()
 
 })
 
+function updateCourseTable() {
+    if (courses == null) 
+        return
+
+    const courseNodes = document.createDocumentFragment()
+    const offset = (currentPage-1)*coursesPerPage
+    for (i=0; i<coursesPerPage && i+offset<courses.length; i++) {
+        courseNodes.appendChild(generateHTML(courses[i + offset]))
+    }
+    document.getElementById("courseTable").replaceChildren(courseNodes)
 
 
 
+    for(const paginator of document.getElementsByClassName("paginator")) {
+        paginator.getElementsByTagName("p")[0].textContent = `Showing courses ${offset+1} - ${Math.min(offset+coursesPerPage+1, courses.length)} (${currentPage}/${Math.ceil(courses.length / coursesPerPage)} pages)`
+    }
+    document.getElementById("searchResults").textContent = `Found ${courses.length} courses.`
+}
 
+
+
+// returns true/false
+function matchesSearch(object, search) {
+
+}
+
+class CatalogueHolder {
+    constructor(){
+
+
+        this.courses = []
+        this.coursesPerPage = parseInt(document.getElementById("coursesPerPageCount").value)
+        this.currentPage = 1 // starts at 1
+    }    
+}
 
 
 
