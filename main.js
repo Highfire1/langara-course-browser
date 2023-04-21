@@ -214,7 +214,7 @@ function generateHTML(object) {
     html += `<p>Previously offered : ${sems}.</p>`
 
     html += `
-    <table class="offeredTable"> 
+    <table class="offeredTable mono"> 
     <thead><th>Semester</th> <th>Seats</th> <th>Waitlist</th> <th>Days</th> <th>Time</th> <th>Room</th> <th>Type</th> <th>Instructor</th></thead>
     `
 
@@ -223,11 +223,11 @@ function generateHTML(object) {
         let s = []
         for (sch of c.schedule) {
             s.push(`
-            <td class=mono>${sch.days}</td> 
-            <td class=mono>${sch.time}</td> 
-            <td class=mono>${sch.room}</td> 
-            <td class=mono>${sch.instructor}</td>  
-            <td class=mono>${sch.type}</td> `
+            <td>${sch.days}</td> 
+            <td>${sch.time}</td> 
+            <td>${sch.room}</td> 
+            <td>${sch.instructor}</td>  
+            <td>${sch.type}</td> `
             )
         }
 

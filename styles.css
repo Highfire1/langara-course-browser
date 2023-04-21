@@ -3,10 +3,10 @@ body, h3 {
     /*font-family: 'Montserrat', sans-serif; */
 }
 
-/*.mono {
+.mono {
     font-family: 'Roboto Mono';
     font-size: small;
-}*/
+}
 
 header, footer {
     background-color: black;
@@ -74,7 +74,7 @@ header > input {
 }
 
 
-body > *:last-child {
+body > *:nth-last-child(2)  {
     padding-bottom: 20px;
 }
 
@@ -106,7 +106,7 @@ body > *:last-child {
     margin-bottom: 20px;
 }
 
-#courseTable > div > *:last-of-type {
+#courseTable > div > *:last-child {
     margin-bottom: 0;
 }
 
