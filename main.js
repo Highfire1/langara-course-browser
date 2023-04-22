@@ -158,20 +158,36 @@ function generateHTML(object) {
     </table>
     `
 
+    function attrColor(attribute) {
+        if (object.attributes[attribute])
+            return "green"
+        else
+            return ""
+    }
+
+
     if (object.attributes === null)
         html += "<p><b>No course attributes available.</b></p>"
     else {
         html += `
         <table>
-            <tr> <th>AR</th> <th>SC</th> <th>HUM</th> <th>LSC</th> <th>SCI</th> <th>SOC</th> <th>UT</th> </tr>
+            <tr> 
+                <th class=${attrColor("AR")}>2AR</th> 
+                <th class=${attrColor("SC")}>2SC</th> 
+                <th class=${attrColor("HUM")}>HUM</th> 
+                <th class=${attrColor("LSC")}>LSC</th> 
+                <th class=${attrColor("SCI")}>SCI</th> 
+                <th class=${attrColor("SOC")}>SOC</th> 
+                <th class=${attrColor("UT")}>UT</th> 
+            </tr>
             <tr>
-                <td>${object.attributes["AR"]}</td>
-                <td>${object.attributes["SC"]}</td>
-                <td>${object.attributes["HUM"]}</td>
-                <td>${object.attributes["LSC"]}</td>
-                <td>${object.attributes["SCI"]}</td>
-                <td>${object.attributes["SOC"]}</td>
-                <td>${object.attributes["UT"]}</td>
+                <td class=${attrColor("AR")}>${object.attributes["AR"]}</td>
+                <td class=${attrColor("SC")}>${object.attributes["SC"]}</td>
+                <td class=${attrColor("HUM")}>${object.attributes["HUM"]}</td>
+                <td class=${attrColor("LSC")}>${object.attributes["LSC"]}</td>
+                <td class=${attrColor("SCI")}>${object.attributes["SCI"]}</td>
+                <td class=${attrColor("SOC")}>${object.attributes["SOC"]}</td>
+                <td class=${attrColor("UT")}>${object.attributes["UT"]}</td>
         </table>
         `
     }
